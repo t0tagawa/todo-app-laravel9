@@ -70,11 +70,11 @@ function restore(id) {
     url: '/restore'
     })
     .done(function(data){ 
-    console.log(data);
+    // console.log(data);
     $('#tr_'+id).remove();
     })
     .fail(function(data){ 
-    console.log(data);
+    // console.log(data);
     alert("error!");
     });
 }

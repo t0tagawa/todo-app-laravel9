@@ -2,7 +2,6 @@
 @section('content')
 
 <style>
-
     input[type="button"],
     .trash-area,
     .body-area{
@@ -69,13 +68,13 @@
             url: '/create'
             })
             .done(function(data){
-                console.log(data.post);
+                // console.log(data.post);
 
                 $("#task-input").val('');
-                // $('tbody.tr_lists').empty();
+
                 for (let i = 0; i < data.post.length; i++) {
                     const element = data.post[i];
-                    console.log(element);
+                    // console.log(element);
                     var el = '';
                     el+= '<tr id="tr_'+element.id+'" class="">';
                     el+= '<td><input type="checkbox" name="task-done" id="checkbox_'+element.id+'" onChange="checkChange('+element.id+')"></td>';
@@ -87,7 +86,7 @@
                 }
                 })
             .fail(function(data){
-                console.log(data);
+                // console.log(data);
                 alert("error!");
             });
     }
@@ -111,12 +110,11 @@ function goToTrash(id) {
         url: '/softdelete'
         })
         .done(function(data){
-            //json = JSON.parse(data);
-            console.log(data);
+            // console.log(data);
             $('#tr_'+id).remove();
         })
         .fail(function(data){
-            console.log(data);
+            // console.log(data);
             alert("error!");
         });
     }
@@ -141,8 +139,7 @@ function goToTrash(id) {
     url: '/check/change'
     })
     .done(function(data){
-    //json = JSON.parse(data);
-        console.log(data);
+        // console.log(data);
         if(data == 1){
             $('#tr_'+id).addClass('bg-success');
         }else{
@@ -150,7 +147,7 @@ function goToTrash(id) {
         }
     })
     .fail(function(data){
-    console.log(data);
+    // console.log(data);
     alert("error!");
     });
     }
