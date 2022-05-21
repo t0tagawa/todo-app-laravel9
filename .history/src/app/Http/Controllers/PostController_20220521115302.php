@@ -51,6 +51,7 @@ class PostController extends Controller
     public function checkedChange(Request $request)
     {
         $is_checked = $request->is_checked === 'true' ? 1 : 0;
+        // Log::debug($is_checked);
 
         $posts = DB::table('posts')
             ->where('id',$request->id)
